@@ -6,9 +6,16 @@
         placeholder="选择日期">
     </el-date-picker>
     <button @click="out()">查询</button>
+    <button @click="out2()">2222</button>
     <el-input
         placeholder="请输入航班号或列车号"
         v-model="input"
+        label-width="100px"
+        clearable>
+    </el-input>
+    <el-input
+        placeholder="请输入城市"
+        v-model="input2"
         label-width="100px"
         clearable>
     </el-input>
@@ -19,6 +26,7 @@
 
 <script>
 import {getQuery} from "../../api/data";
+import {getPolicy} from "../../api/data";
 
 export default {
   name: 'UserQuery',
@@ -52,6 +60,7 @@ export default {
       value1: '',
       value2: '',
       input:'',
+      input2:'',
     };
   },
   methods: {
@@ -63,6 +72,12 @@ export default {
       console.log(param)
       getQuery(param)
 
+    },
+    out2(){
+      let param = {
+        'cityname':this.input2,
+      }
+      getPolicy(param)
     }
   }
 };

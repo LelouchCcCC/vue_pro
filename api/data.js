@@ -31,6 +31,15 @@ export const getFeed = (param) => {
     })
 }
 
+export const getPolicy = (param) => {
+    return axios.request({
+        url: '/policy',
+        method: 'post',
+        data: param,
+    })
+}
+
+
 
 export const getLks = () => {
     return axios.request({
